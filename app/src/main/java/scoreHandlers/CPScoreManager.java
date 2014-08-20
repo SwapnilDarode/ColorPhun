@@ -2,7 +2,6 @@ package scoreHandlers;
 
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
@@ -13,8 +12,8 @@ import scoreHandlers.ScoreModels.CPScore;
  */
 public class CPScoreManager {
 
-    boolean TOPSCRORES = false;
-    boolean HIGHSCRORE = true;
+    boolean TOPSCORES = false;
+    boolean HIGHSCORE = true;
 
 
     Context mContext;
@@ -38,7 +37,7 @@ public class CPScoreManager {
 
     public ArrayList<CPScore> getTopScores()
     {
-        return  dbHandler.getScoreCards(TOPSCRORES);
+        return  dbHandler.getScoreCards(TOPSCORES);
     }
 
     /**
@@ -48,7 +47,7 @@ public class CPScoreManager {
 
     public CPScore getHighScore()
     {
-        ArrayList<CPScore> highScorer = dbHandler.getScoreCards(HIGHSCRORE);
+        ArrayList<CPScore> highScorer = dbHandler.getScoreCards(HIGHSCORE);
 
         if(highScorer!=null)
             return highScorer.get(0);

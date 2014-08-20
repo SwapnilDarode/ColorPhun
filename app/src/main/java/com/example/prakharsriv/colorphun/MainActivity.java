@@ -190,7 +190,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 score.setPlayer(playerName);
                 score.setScore(points);
 
-                boolean scroreUpdate = false;
+                boolean scoreUpdate = false;
 
                 if(topScores!=null)
                 {
@@ -204,14 +204,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                             topScores.set(scoreIndex, cpScore);
 
-                            scroreUpdate = true;
+                            scoreUpdate = true;
 
                             break;
                         }
                         scoreIndex = scoreIndex + 1;
                     }
 
-                    if(!scroreUpdate)
+                    if(!scoreUpdate)
                     {
                         topScores.add(score);
                     }

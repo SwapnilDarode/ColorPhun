@@ -17,12 +17,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private final  String TBLSCOREBOARD = "tblScoreBoard";
 
-    private final String CREATETABLE_SCOREBOARD = "CREATE TABLE " + TBLSCOREBOARD + " (scroreIndex INTEGER PRIMARY KEY AUTOINCREMENT, player TEXT, score INTEGER);";
-
-    private final String SELECT_SCRORE = "SELECT * FROM " + TBLSCOREBOARD + " ORDER BY score DESC LIMIT 5";
-
-    private final String SELECT_TOPSCRORE = "SELECT * FROM " + TBLSCOREBOARD + " ORDER BY score DESC LIMIT 1";
-
     public DBHandler(Context context)
     {
         super(context, "cpScoreBoard" , null, 1);
@@ -30,6 +24,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String CREATETABLE_SCOREBOARD = "CREATE TABLE " + TBLSCOREBOARD + " (scroreIndex INTEGER PRIMARY KEY AUTOINCREMENT, player TEXT, score INTEGER);";
 
         sqLiteDatabase.execSQL(CREATETABLE_SCOREBOARD);
     }
@@ -68,6 +63,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public ArrayList<CPScore> getScoreCards(boolean getHighScorer){
 
         SQLiteDatabase db = this.getReadableDatabase();
+
+        String SELECT_SCRORE = "SELECT * FROM " + TBLSCOREBOARD + " ORDER BY score DESC LIMIT 5";
+
+        String SELECT_TOPSCRORE = "SELECT * FROM " + TBLSCOREBOARD + " ORDER BY score DESC LIMIT 1";
 
         ArrayList<CPScore> topScores = null;
 
